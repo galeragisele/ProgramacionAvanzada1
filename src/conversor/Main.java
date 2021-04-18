@@ -119,20 +119,6 @@ public class Main extends javax.swing.JFrame {
         //Reemplazar "," por "."
         valorString = jtf.getText().replace(",", ".");
         
-        //Ver si tiene algun caracter L long, F float, D;
-        if (valorString.toLowerCase().contains("l") ||
-            valorString.toLowerCase().contains("f") ||
-            valorString.toLowerCase().contains("d") ){
-            //Mostrar error en pantalla
-            error(jtf);
-            
-            //Mostrar mensaje de error por consola
-            System.out.println("contiene L, F ó D");
-            
-            //Punto de escape, para que no continue con la ejecución
-            return null;
-        }
-        
         //Convertir (parsear/castear) el valor de tipo string en tipo numerico decimal
         try {   
             valor = Double.valueOf(valorString);
@@ -148,7 +134,20 @@ public class Main extends javax.swing.JFrame {
             //Punto de escape, para que no continue con la ejecución
             return null;
         }
-
+        
+        //Ver si tiene algun caracter L long, F float, D;
+        if (valorString.toLowerCase().contains("l") ||
+            valorString.toLowerCase().contains("f") ||
+            valorString.toLowerCase().contains("d") ){
+            //Mostrar error en pantalla
+            error(jtf);
+            
+            //Mostrar mensaje de error por consola
+            System.out.println("contiene L, F ó D");
+            
+            //Punto de escape, para que no continue con la ejecución
+            return null;
+        }
         
         //Obtiene el conversor seleccionado
         Conversor conversor = getConversorSeleccionado();
@@ -331,8 +330,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jbConsignaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsignaActionPerformed
         String text = "<html>"
-                    + "<h2>Programacion I - UNLAM</h2><br>"
-                    + "<h3>Grupo 10 (?):</h3>"
+                    + "<h2>Programación I - UNLAM</h2><br>"
+                    + "<h3>Trabajo realizado por Grupo X:</h3>"
                     + " * Luciano Salgado<br>"
                     + " * Gisele Galera<br>"
                     + " * Lionel Bacsansky<br>"
@@ -347,7 +346,7 @@ public class Main extends javax.swing.JFrame {
                     + "✔ Si se ingresa la ',' (coma) como separador decimal, que se realice la conversión.<br>"
                     + "✔ Basarse en lo hecho en clase, terniendo en cuenta el uso de la Herencia y el Polimorfismo.<br>"
                     + "</div>";
-        JOptionPane.showMessageDialog(this, text, "TP1 - Conversor", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, text, "Acerca de TP1 - Conversor", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_jbConsignaActionPerformed
 
