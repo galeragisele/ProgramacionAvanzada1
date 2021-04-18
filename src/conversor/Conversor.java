@@ -6,34 +6,52 @@
 package conversor;
 
 /**
- *
- * @author Luciano
- * @author Gisele
- * @author Lionel
+ * @authors: 
+ * Luciano Salgado
+ * Gisele Galera
+ * Lionel Bacsansky
  */
 
-// la CLASE Conversor (padre) - es abstracta porque no tiene valor por sí solo
+/**
+ * La CLASE Conversor (padre) - es abstracta porque no tiene valor por sí solo
+ */
 public abstract class Conversor {
 
-    private Double lengthValue;
+    //Declaración de variables
+    private Double x;
 
-// acá es un CONSTRUCTOR de tipo de acceso Protegido - para uso interno - que usa las clases hijas
-// cuando se ejecuta la clase hija - se ejecuta el constructor de la clase hija
-// esta es la función que recibe de la clase hija
-// y lo guarda en la propiedad X
-    protected Conversor(Double lengthValue) {
-        this.lengthValue = lengthValue;
+
+    /**
+     * Constructor vacío, siempre debe estar
+     */
+    public Conversor() {
+    }
+    
+    /**
+     * CONSTRUCTOR de tipo de acceso Protegido - para uso interno - que usa las clases hijas
+     * cuando se ejecuta la clase hija - se ejecuta el constructor de la clase hija
+     * esta es la función que recibe de la clase hija
+     * y lo guarda en la propiedad x
+     * @param x
+     */
+    protected Conversor(Double x) {
+        this.x = x;
     }
 
-// MÉTODO abstracto (función) - esta se pisa con las funciones de las clases hijas (override)
+    //MÉTODO abstracto (función) - esta se pisa con las funciones de las clases hijas (override)
     public abstract String getLabelValor1();
     public abstract String getLabelValor2();
 
-// MÉTODO PRINCIPAL de la CLASE PADRE (Conversor)- donde se hace la conversión
+    /**
+     * MÉTODO PRINCIPAL de la CLASE PADRE (Conversor)- donde se hace la conversión 
+     * Las subclases no lo pueden editar, porque es final
+     * @param valor
+     * @param camino
+     * @return Double
+     */
     public final Double convertir(Double valor, boolean camino){
-        return (camino) ? valor/lengthValue : valor*lengthValue;
+        return (camino) ? valor/x : valor*x;
     }
-    
-    
+
     
 }

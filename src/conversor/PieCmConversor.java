@@ -6,10 +6,10 @@
 package conversor;
 
 /**
- *
- * @author Luciano
- * @author Gisele
- * @author Lionel
+ * @authors: 
+ * Lionel Bacsansky
+ * Gisele Galera
+ * Luciano Salgado
  */
 public class PieCmConversor extends Conversor{
 

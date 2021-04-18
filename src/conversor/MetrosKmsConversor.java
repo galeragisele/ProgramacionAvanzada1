@@ -6,10 +6,10 @@
 package conversor;
 
 /**
- *
- * @author Luciano
- * @author Gisele
- * @author Lionel
+ * @authors: 
+ * Luciano Salgado
+ * Gisele Galera
+ * Lionel Bacsansky
  */
 public class MetrosKmsConversor extends Conversor{
 
