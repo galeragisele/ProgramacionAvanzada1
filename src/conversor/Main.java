@@ -161,6 +161,19 @@ public class Main extends javax.swing.JFrame {
         //Retorna el valor convertido, en forma de String, listo para hacer un setText al JTextField
         return retornoString;
     }
+   
+    /**
+     * Esta funcion valida que haya que convertir con la tecla enter
+     * Evita el bug de bucle cuando aparece el error y tocas enter para quitar el cartel
+     * pero quiere volver a convertir.
+     * @param evt
+     * @return boolean
+     */
+    private boolean convertirConEnter(java.awt.event.KeyEvent evt){
+        return evt.getKeyChar()==KeyEvent.VK_ENTER && 
+            (!"".equals(jtfValor1.getText()) ||
+            (!"".equals(jtfValor2.getText()) ));
+    }
     
 
     /**
@@ -285,9 +298,7 @@ public class Main extends javax.swing.JFrame {
     private void jtfValor1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfValor1KeyReleased
         camino = false;
         //Si se toca la tecla enter hay texto en alguno de los 2 JTextFields
-        if(evt.getKeyChar()==KeyEvent.VK_ENTER && 
-            (!"".equals(jtfValor1.getText()) ||
-            (!"".equals(jtfValor1.getText()) ))){
+        if(convertirConEnter(evt)){
             jtfValor2.setText(convertir(jtfValor1));
         }
     }//GEN-LAST:event_jtfValor1KeyReleased
@@ -313,9 +324,7 @@ public class Main extends javax.swing.JFrame {
      */
     private void jtfValor2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfValor2KeyReleased
         camino = true;
-        if(evt.getKeyChar()==KeyEvent.VK_ENTER && 
-            !("".equals(jtfValor1.getText()) ||
-            !("".equals(jtfValor1.getText()) ))){
+        if(convertirConEnter(evt)){
             jtfValor1.setText(convertir(jtfValor2));
         }
     }//GEN-LAST:event_jtfValor2KeyReleased
@@ -340,7 +349,7 @@ public class Main extends javax.swing.JFrame {
                     + "El conversor genérico debe tener las siguientes funcionalidades:<br>"
                     + "✔ Contener al menor 5 tipos de conversores. Pueden incluir los dos vistos en clase.<br>"
                     + "✔ Dos TextFields, con UN solo botón para convertir.<br>"
-                    + "✔ Presionando <ENTER> sobre los TextFields, debe convertir.<br>"
+                    + "✔ Presionando ENTER sobre los TextFields, debe convertir.<br>"
                     + "✔ No contener código repetido, esto es reutilizar sentencias de código que se necesitan en eventos diferentes.<br>"
                     + "✔ Manejo de error con Exceptions (ej.: NumberFormatException), mostrando un mensaje amigable via JOptionPane.<br>"
                     + "✔ Si se ingresa la ',' (coma) como separador decimal, que se realice la conversión.<br>"
