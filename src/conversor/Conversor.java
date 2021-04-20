@@ -49,8 +49,8 @@ public abstract class Conversor {
      * @param camino
      * @return Double
      */
-    public final Double convertir(Double valor, boolean camino){
-        return (camino) ? valor/x : valor*x;
+    public final Double convertir(Double valor, boolean sentidoConversion){
+        return (sentidoConversion) ? valor/x : valor*x;
     }
 
     
