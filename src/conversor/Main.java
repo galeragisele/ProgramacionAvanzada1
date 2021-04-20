@@ -135,7 +135,7 @@ public class Main extends javax.swing.JFrame {
             return null;
         }
         
-        //Ver si tiene algun caracter L long, F float, D;
+        //Ver si tiene algun caracter L long, F float, D double;
         if (valorString.toLowerCase().contains("l") ||
             valorString.toLowerCase().contains("f") ||
             valorString.toLowerCase().contains("d") ){
@@ -148,7 +148,7 @@ public class Main extends javax.swing.JFrame {
             //Punto de escape, para que no continue con la ejecución
             return null;
         }
-        
+       
         //Obtiene el conversor seleccionado
         Conversor conversor = getConversorSeleccionado();
         
@@ -170,7 +170,7 @@ public class Main extends javax.swing.JFrame {
      * @return boolean
      */
     private boolean convertirConEnter(java.awt.event.KeyEvent evt){
-        return evt.getKeyChar()==KeyEvent.VK_ENTER && 
+        return evt.getKeyChar()==KeyEvent.VK_ENTER &&
             (!"".equals(jtfValor1.getText()) ||
             (!"".equals(jtfValor2.getText()) ));
     }
@@ -340,7 +340,7 @@ public class Main extends javax.swing.JFrame {
     private void jbConsignaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsignaActionPerformed
         String text = "<html>"
                     + "<h2>Programación I - UNLAM</h2><br>"
-                    + "<h3>Trabajo realizado por Grupo X:</h3>"
+                    + "<h3>Trabajo realizado por Grupo 13:</h3>"
                     + " * Luciano Salgado<br>"
                     + " * Gisele Galera<br>"
                     + " * Lionel Bacsansky<br>"
@@ -354,7 +354,8 @@ public class Main extends javax.swing.JFrame {
                     + "✔ Manejo de error con Exceptions (ej.: NumberFormatException), mostrando un mensaje amigable via JOptionPane.<br>"
                     + "✔ Si se ingresa la ',' (coma) como separador decimal, que se realice la conversión.<br>"
                     + "✔ Basarse en lo hecho en clase, terniendo en cuenta el uso de la Herencia y el Polimorfismo.<br>"
-                    + "</div>";
+                    + "</div>"
+                    + "</html>";
         JOptionPane.showMessageDialog(this, text, "Acerca de TP1 - Conversor", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_jbConsignaActionPerformed
