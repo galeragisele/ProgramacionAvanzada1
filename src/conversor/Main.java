@@ -25,8 +25,8 @@ public class Main extends javax.swing.JFrame {
     private List<Conversor> conversores = new ArrayList<>();
 
     // ATRIBUTO (variable) de tipo boolean que define hacia que lado se va a realizar la conversion
-    //si va a ser valor1 => valor2 o viceversa
-    private boolean camino;
+    //si va a ser valor1 => valor2 (true) o viceversa (false)
+    private boolean valor1valor2;
     
 
     /**
@@ -153,7 +153,7 @@ public class Main extends javax.swing.JFrame {
         Conversor conversor = getConversorSeleccionado();
         
         //Ejecuta el METODO Convertir con el valor del cbb (getText)
-        retorno = conversor.convertir(valor, camino);
+        retorno = conversor.convertir(valor, valor1valor2);
         
         //Convertir el valor en string para mostrar en el JTextField correspondiente
         retornoString = String.format("%.3f", retorno);
@@ -296,7 +296,7 @@ public class Main extends javax.swing.JFrame {
      * @return void
      */
     private void jtfValor1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfValor1KeyReleased
-        camino = false;
+        valor1valor2 = false;
         //Si se toca la tecla enter hay texto en alguno de los 2 JTextFields
         if(convertirConEnter(evt)){
             jtfValor2.setText(convertir(jtfValor1));
@@ -310,7 +310,7 @@ public class Main extends javax.swing.JFrame {
      * @return void
      */
     private void jbConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConvertirActionPerformed
-        if (camino) {
+        if (valor1valor2) {
             jtfValor1.setText(convertir(jtfValor2));
         } else {
             jtfValor2.setText(convertir(jtfValor1));
@@ -323,7 +323,7 @@ public class Main extends javax.swing.JFrame {
      * @return void
      */
     private void jtfValor2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfValor2KeyReleased
-        camino = true;
+        valor1valor2 = true;
         if(convertirConEnter(evt)){
             jtfValor1.setText(convertir(jtfValor2));
         }
