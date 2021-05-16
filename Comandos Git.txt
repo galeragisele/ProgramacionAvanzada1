@@ -1,7 +1,0 @@
-Clonar repositorio:	git clone httpsgithub.comgaleragiseleProgramacionAvanzada1.git
-
-Traer cambios:		git pull
-
-Enviar cambios:		git add .
-			git commit -m "mensaje de update"
-			git push
